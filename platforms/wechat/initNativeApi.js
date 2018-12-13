@@ -16,11 +16,9 @@ function processApis(megalo) {
     noPromiseApis,
     needPromiseApis,
   )
-
+  
   weApis.forEach(key => {
-
-    if (sharedNeedPromiseApis[key] || needPromiseApis[key]) {
-
+    if (!!~sharedNeedPromiseApis.indexOf(key) || !!~needPromiseApis.indexOf(key)) {
       megalo[key] = (options, ...args) => {
         let task;
         let cloneOpts = Object.assign({}, options);
@@ -52,7 +50,8 @@ function processApis(megalo) {
         });
 
         if (key === 'downloadFile' || key === 'uploadFile') {
-          ['abort',
+          [
+            'abort',
             'onProgressUpdate',
             'offProgressUpdate',
             'onHeadersReceived',
