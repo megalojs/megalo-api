@@ -53,7 +53,7 @@ data | string/object/ArrayBuffer |  | 否 | 请求的参数
 header | Object |  | 否 | 设置请求的 header，header 中不能设置 Referer。`content-type` 默认为 `application/json`
 method | string | GET | 否 | HTTP 请求方法
 dataType | string | json | 否 | 返回的数据格式
-responseType | string | text | 否 | 响应的数据类型
+responseType | string | text | 否 | 响应的数据类型（**支付宝不支持**）
 success | function |  | 否 | 接口调用成功的回调函数
 fail | function |  | 否 | 接口调用失败的回调函数
 complete | function |  | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）

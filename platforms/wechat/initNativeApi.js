@@ -9,6 +9,8 @@ import {
   needPromiseApis,
 } from './nativeApi';
 
+const foo = () => {};
+
 function processApis(megalo) {
   const weApis = [].concat(
     sharedNoPromiseApis,
@@ -81,4 +83,4 @@ export default function initNativeApi(megalo) {
   megalo.request = (...args) => {
     return request.apply(wx, args)
   };
-};
+}

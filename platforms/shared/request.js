@@ -1,3 +1,8 @@
+import {
+  getEnv,
+  ENV_TYPE,
+} from './env';
+
 const foo = () => {};
 
 const RequestQueue = {
@@ -37,6 +42,25 @@ function request(options) {
   const rawSuccess = options.success;
   const rawFail = options.fail;
   const rawComplete = options.complete;
+  const defaultHeaders = {
+    'Content-Type': 'application/json'
+  };
+
+  // 兼容支付宝 httpRequest 和 headers
+  let requestApi = ctx.request;
+  if (getEnv() === ENV_TYPE.ALIPAY) {
+    requestApi = ctx.httpRequest;
+    options['headers'] = defaultHeaders;
+
+    if (options['header']) {
+      for (const k in options['headers']) {
+        const lowerK = k.toLocaleLowerCase();
+        options['headers'][k] = options['header'][lowerK];
+      }
+
+      delete options['header'];
+    }
+  }
 
   let requestTask;
   const p = new Promise((resolve, reject) => {
@@ -59,7 +83,7 @@ function request(options) {
             resolveTask();
           }
 
-          requestTask = ctx.request(options);
+          requestTask = requestApi(options);
         });
       }
     });

@@ -4,7 +4,15 @@
   "description": "重新封装各个端中的API，由 megalo 统一对外抛出方法名。目前微信小程序端提供的 API 最为丰富，所以 API 名称以微信小程序为准。",
   "main": "index.js",
   "scripts": {
+    "precommit": "lint-staged",
+    "lint": "eslint ./ --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "./**/*.js": [
+      "eslint --fix --quiet",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,5 +31,18 @@
     "url": "https://github.com/megalojs/megalo-api/issues"
   },
   "homepage": "https://github.com/megalojs/megalo-api#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "commitizen": "^3.0.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.10.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
