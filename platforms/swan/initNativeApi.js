@@ -1,5 +1,6 @@
-import { 
+import {
   request,
+  adaptApi,
   sharedNoPromiseApis,
   sharedNeedPromiseApis,
 } from '../shared';
@@ -11,6 +12,15 @@ import {
 
 const foo = () => {};
 
+const apiDiff = {
+  'navigateBackMiniProgram': {
+    alias: 'navigateBackSmartProgram'
+  },
+  'navigateToMiniProgram': {
+    alias: 'navigateToSmartProgram'
+  }
+};
+
 function processApis(megalo) {
   const swanApis = [].concat(
     sharedNoPromiseApis,
@@ -20,16 +30,19 @@ function processApis(megalo) {
   )
 
   swanApis.forEach(key => {
-
-    if (!(key in swan)) {
-      megalo[key] = () => {
-        console.warn(`百度小程序暂不支持 swan.${key}`)
-      }
-      return
-    }
-
     if (!!~sharedNeedPromiseApis.indexOf(key) || !!~needPromiseApis.indexOf(key)) {
       megalo[key] = (options, ...args) => {
+
+        // Api 差异化兼容
+        const result = adaptApi(key, options, apiDiff);
+        const aliasKey = result.rawApi;
+        options = result.options;
+
+        if (!(aliasKey in swan)) {
+          console.warn(`百度小程序暂不支持 swan.${aliasKey}`)
+          return
+        }
+
         let task;
         let cloneOpts = Object.assign({}, options);
 
@@ -39,7 +52,7 @@ function processApis(megalo) {
             cloneOpts[evt] = res => {
               options[evt] && options[evt](res);
               if (evt === 'success') {
-                if (key === 'connectSocket') {
+                if (aliasKey === 'connectSocket') {
                   resolve(
                     Promise.resolve().then(() => Object.assign(task, res))
                   )
@@ -53,13 +66,13 @@ function processApis(megalo) {
 
           });
           if (args.length) {
-            task = swan[key](cloneOpts, ...args);
+            task = swan[aliasKey](cloneOpts, ...args);
           } else {
-            task = swan[key](cloneOpts);
+            task = swan[aliasKey](cloneOpts);
           }
         });
 
-        if (key === 'downloadFile' || key === 'uploadFile') {
+        if (aliasKey === 'downloadFile' || aliasKey === 'uploadFile') {
           [
             'abort',
             'onProgressUpdate',
