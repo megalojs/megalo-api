@@ -29,9 +29,6 @@ const noPromiseApis = [
   // 账号信息
   'getAccountInfoSync',
 
-  // 数据分析
-  'reportAnalytics',
-
   // Worker
   'createWorker',
 
@@ -51,13 +48,8 @@ const noPromiseApis = [
   // 生命周期
   'getLaunchOptionsSync',
 
-  // WXML
-  'createIntersectionObserver',
-  'createSelectorQuery',
-
   // 调试
   'getLogManager',
-
 ];
 
 const needPromiseApis = [
@@ -81,6 +73,9 @@ const needPromiseApis = [
   'addCard',
   'openCard',
 
+  // 微信支付
+  'requestPayment',
+
   // 发票
   'chooseInvoice',
 
@@ -94,7 +89,6 @@ const needPromiseApis = [
 
   // 调试
   'setEnableDebug',
-
 ];
 
 export {

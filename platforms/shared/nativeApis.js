@@ -35,7 +35,7 @@ const sharedNoPromiseApis = [
   'onCompassChange',
   'onBluetoothAdapterStateChange',
   'onBluetoothDeviceFound',
-  'onBLEConnectionStateChange', // 支付宝为 onBLEConnectionStateChanged
+  'onBLEConnectionStateChange', // 支付宝：onBLEConnectionStateChanged
   'onBLECharacteristicValueChange',
   'onBeaconUpdate',
   'onBeaconServiceChange',
@@ -54,11 +54,18 @@ const sharedNoPromiseApis = [
   'createSelectorQuery',
   'getMenuButtonBoundingClientRect',
 
+  // WXML
+  'createIntersectionObserver',
+  'createSelectorQuery',
+
   // 更新
   'getUpdateManager',
 
   // 第三方
   'getExtConfigSync',
+
+  // 数据分析
+  'reportAnalytics',
 ];
 
 const sharedNeedPromiseApis = [
@@ -74,7 +81,7 @@ const sharedNeedPromiseApis = [
   'previewImage',
   'getImageInfo',
   'compressImage',
-  'saveImageToPhotosAlbum', // 支付宝为 saveImage
+  'saveImageToPhotosAlbum', // 支付宝：saveImage
   'chooseVideo',
   'saveVideoToPhotosAlbum',
 
@@ -153,7 +160,7 @@ const sharedNeedPromiseApis = [
   'showLoading',
   'hideToast',
   'hideLoading',
-  'showModal', // 支付宝为 comfirm
+  'showModal', // 支付宝：comfirm
   'showActionSheet',
   'setNavigationBarTitle',
   'showNavigationBarLoading',
@@ -188,12 +195,11 @@ const sharedNeedPromiseApis = [
   'authorize',
   'chooseInvoiceTitle',
   'faceVerifyForPay',
-  'requestPayment',
   'getUserInfo',
   'login',
   'checkSession',
-  'navigateBackMiniProgram',
-  'navigateToMiniProgram',
+  'navigateBackMiniProgram',  // 百度：navigateBackSmartProgram
+  'navigateToMiniProgram',    // 百度：navigateToSmartProgram
   'getShareInfo',
   'hideShareMenu',
   'showShareMenu',
