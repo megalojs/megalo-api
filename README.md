@@ -102,7 +102,7 @@ statusCode | number | 开发者服务器返回的 HTTP 状态码
 
 API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 
 --- | --- | --- | --- | --- | ---
-request | ✔ | ✔ |  | ✔ | 
+uploadFile | ✔ | ✔ |  | ✔ | 
 
 ##### 下载
 
@@ -132,7 +132,7 @@ statusCode | number | 开发者服务器返回的 HTTP 状态码
 
 API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 
 --- | --- | --- | --- | --- | ---
-request | ✔ | ✔ |  | ✔ | 
+downloadFile | ✔ | ✔ |  | ✔ | 
 
 ##### WebSocket
 

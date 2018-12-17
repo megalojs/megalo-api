@@ -33,11 +33,11 @@ function processApis(megalo) {
     sharedNeedPromiseApis,
     noPromiseApis,
     needPromiseApis,
-  )
+  );
 
   swanApis.forEach(key => {
     if (!!~sharedNeedPromiseApis.indexOf(key) || !!~needPromiseApis.indexOf(key)) {
-      megalo[key] = (options, ...args) => {
+      megalo[key] = (options = {}, ...args) => {
 
         // Api 差异化兼容
         const result = adaptApi(key, options, apiDiffs);
@@ -45,8 +45,8 @@ function processApis(megalo) {
         options = result.options;
 
         if (!(aliasKey in swan)) {
-          console.warn(`百度小程序暂不支持 swan.${aliasKey}`)
-          return
+          console.warn(`百度小程序暂不支持 swan.${aliasKey}`);
+          return;
         }
 
         let task;
@@ -61,7 +61,7 @@ function processApis(megalo) {
                 if (aliasKey === 'connectSocket') {
                   resolve(
                     Promise.resolve().then(() => Object.assign(task, res))
-                  )
+                  );
                 } else {
                   resolve(res);
                 }
@@ -86,9 +86,9 @@ function processApis(megalo) {
             p[evt] = cb => {
               cb = cb || foo;
               if (task) {
-                task[evt](cb)
+                task[evt](cb);
               }
-            }
+            };
           });
         }
 
@@ -97,7 +97,7 @@ function processApis(megalo) {
     } else {
       megalo[key] = (...args) => {
         return swan[key].apply(swan, args);
-      }
+      };
     }
   });
 }

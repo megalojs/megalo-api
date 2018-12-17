@@ -52,12 +52,12 @@ function request(options) {
           options.fail = res => {
             rawFail && rawFail(res);
             reject(res);
-          }
+          };
 
           options.complete = res => {
             rawComplete && rawComplete(res);
             resolveTask();
-          }
+          };
 
           requestTask = ctx.request(options);
         });
@@ -85,7 +85,7 @@ function request(options) {
     if (requestTask.onHeadersReceived) {
       requestTask.onHeadersReceived(cb);
     }
-  }
+  };
 
   return p;
 }

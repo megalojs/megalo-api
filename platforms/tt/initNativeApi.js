@@ -20,11 +20,11 @@ function processApis(megalo) {
     sharedNeedPromiseApis,
     noPromiseApis,
     needPromiseApis,
-  )
+  );
 
   ttApis.forEach(key => {
     if (!!~sharedNeedPromiseApis.indexOf(key) || !!~needPromiseApis.indexOf(key)) {
-      megalo[key] = (options, ...args) => {
+      megalo[key] = (options = {}, ...args) => {
 
         // Api 差异化兼容
         const result = adaptApi(key, options, apiDiffs);
@@ -32,8 +32,8 @@ function processApis(megalo) {
         options = result.options;
 
         if (!(aliasKey in tt)) {
-          console.warn(`头条小程序暂不支持 tt.${aliasKey}`)
-          return
+          console.warn(`头条小程序暂不支持 tt.${aliasKey}`);
+          return;
         }
 
         let task;
@@ -48,7 +48,7 @@ function processApis(megalo) {
                 if (aliasKey === 'connectSocket') {
                   resolve(
                     Promise.resolve().then(() => Object.assign(task, res))
-                  )
+                  );
                 } else {
                   resolve(res);
                 }
@@ -73,9 +73,9 @@ function processApis(megalo) {
             p[evt] = cb => {
               cb = cb || foo;
               if (task) {
-                task[evt](cb)
+                task[evt](cb);
               }
-            }
+            };
           });
         }
 
@@ -84,7 +84,7 @@ function processApis(megalo) {
     } else {
       megalo[key] = (...args) => {
         return tt[key].apply(tt, args);
-      }
+      };
     }
   });
 }

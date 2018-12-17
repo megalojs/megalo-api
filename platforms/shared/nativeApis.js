@@ -79,7 +79,6 @@ const sharedNeedPromiseApis = [
   'chooseImage',
   'previewImage',
   'getImageInfo',
-  'compressImage',
   'saveImageToPhotosAlbum', // 支付宝：saveImage
   'chooseVideo',
   'saveVideoToPhotosAlbum',

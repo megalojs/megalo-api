@@ -12,10 +12,18 @@ function adaptApi(key, options = {}, apiDiffs) {
         const changes = apiDiff.options.changes;
         if (changes) {
           changes.forEach(change => {
-            options[change.individual] = options[change.standard];
+            options[change.indv] = options[change.std];
+          });
+        }
+
+        const set = apiDiff.options.set;
+        if (set) {
+          set.forEach(setItem => {
+            options[setItem.key] = typeof setItem.value === 'function' ? setItem.value(options) : setItem.value;
           });
         }
       }
+
     }
   });
 

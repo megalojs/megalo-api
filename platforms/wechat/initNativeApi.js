@@ -17,11 +17,11 @@ function processApis(megalo) {
     sharedNeedPromiseApis,
     noPromiseApis,
     needPromiseApis,
-  )
+  );
   
   weApis.forEach(key => {
     if (!!~sharedNeedPromiseApis.indexOf(key) || !!~needPromiseApis.indexOf(key)) {
-      megalo[key] = (options, ...args) => {
+      megalo[key] = (options = {}, ...args) => {
         let task;
         let cloneOpts = Object.assign({}, options);
 
@@ -34,7 +34,7 @@ function processApis(megalo) {
                 if (key === 'connectSocket') {
                   resolve(
                     Promise.resolve().then(() => Object.assign(task, res))
-                  )
+                  );
                 } else {
                   resolve(res);
                 }
@@ -62,9 +62,9 @@ function processApis(megalo) {
             p[evt] = cb => {
               cb = cb || foo;
               if (task) {
-                task[evt](cb)
+                task[evt](cb);
               }
-            }
+            };
           });
         }
 
@@ -73,7 +73,7 @@ function processApis(megalo) {
     } else {
       megalo[key] = (...args) => {
         return wx[key].apply(wx, args);
-      }
+      };
     }
   });
 }
@@ -81,6 +81,6 @@ function processApis(megalo) {
 export default function initNativeApi(megalo) {
   processApis(megalo);
   megalo.request = (...args) => {
-    return request.apply(wx, args)
+    return request.apply(wx, args);
   };
 }

@@ -89,6 +89,9 @@ const needPromiseApis = [
 
   // 调试
   'setEnableDebug',
+
+  // 压缩图片
+  'compressImage',
 ];
 
 export {
