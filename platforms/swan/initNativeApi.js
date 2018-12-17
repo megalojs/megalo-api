@@ -12,12 +12,18 @@ import {
 
 const foo = () => {};
 
-const apiDiff = {
+const apiDiffs = {
   'navigateBackMiniProgram': {
     alias: 'navigateBackSmartProgram'
   },
   'navigateToMiniProgram': {
-    alias: 'navigateToSmartProgram'
+    alias: 'navigateToSmartProgram',
+    options: {
+      changes: [{
+        standard: 'appId',
+        individual: 'appKey'
+      }]
+    }
   }
 };
 
@@ -34,7 +40,7 @@ function processApis(megalo) {
       megalo[key] = (options, ...args) => {
 
         // Api 差异化兼容
-        const result = adaptApi(key, options, apiDiff);
+        const result = adaptApi(key, options, apiDiffs);
         const aliasKey = result.rawApi;
         options = result.options;
 

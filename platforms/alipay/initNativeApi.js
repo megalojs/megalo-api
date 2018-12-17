@@ -32,7 +32,19 @@ function adaptRequest(options) {
   }
 
   this.request = this.httpRequest;
-  return request.call(this, options);
+  const requestTask = request.call(this, options);
+
+  return requestTask.then(res => {
+    res.statusCode = res.status;
+    delete res.status;
+
+    res.header = res.headers;
+    delete res.headers;
+
+    return Promise.resolve(res);
+  }).catch(error => {
+    return Promise.reject(error);
+  });
 }
 
 export default function initNativeApi(megalo) {

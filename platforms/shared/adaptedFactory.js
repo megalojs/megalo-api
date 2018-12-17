@@ -1,11 +1,20 @@
-function adaptApi(key, options = {}, apiDiff) {
+function adaptApi(key, options = {}, apiDiffs) {
   let rawApi = key;
 
-  Object.keys(apiDiff).forEach(item => {
-    const apiItem = apiDiff[item];
+  Object.keys(apiDiffs).forEach(item => {
+    const apiDiff = apiDiffs[item];
     if (key === item) {
-      if (apiItem.alias) {
-        rawApi = apiItem.alias;
+      if (apiDiff.alias) {
+        rawApi = apiDiff.alias;
+      }
+
+      if (apiDiff.options) {
+        const changes = apiDiff.options.changes;
+        if (changes) {
+          changes.forEach(change => {
+            options[change.individual] = options[change.standard];
+          });
+        }
       }
     }
   });

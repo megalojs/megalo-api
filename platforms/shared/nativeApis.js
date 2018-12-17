@@ -51,7 +51,6 @@ const sharedNoPromiseApis = [
   'createAnimation',
   'pageScrollTo',
   'createCanvasContext',
-  'createSelectorQuery',
   'getMenuButtonBoundingClientRect',
 
   // WXML
