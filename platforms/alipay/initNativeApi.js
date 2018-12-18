@@ -54,8 +54,8 @@ function processApis(megalo) {
               if (evt === 'success') {
 
                 // 处理 response 返回字段的差异化
-                if (needPromiseApiDiffs[aliasKey].response) {
-                  const response = needPromiseApiDiffs[aliasKey].response;
+                if (needPromiseApiDiffs[key] && needPromiseApiDiffs[key].response) {
+                  const response = needPromiseApiDiffs[key].response;
 
                   response.forEach(item => {
                     res[item.key] = item.value(res);

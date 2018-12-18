@@ -13,6 +13,7 @@ function adaptApi(key, options = {}, apiDiffs) {
         if (changes) {
           changes.forEach(change => {
             options[change.indv] = options[change.std];
+            delete options[change.std];
           });
         }
 

@@ -61,7 +61,7 @@ const needPromiseApiDiffs = {
         {
           key: 'current',
           value(options) {
-            return options.urls.indexOf(options.current || options[0]);
+            return options.urls.indexOf(options.current || options.urls[0]);
           }
         }
       ]
@@ -143,7 +143,7 @@ const needPromiseApiDiffs = {
       {
         key: 'networkType',
         value(res) {
-          return res.toLocaleLowerCase();
+          return res.networkType.toLocaleLowerCase();
         }
       }
     ]
