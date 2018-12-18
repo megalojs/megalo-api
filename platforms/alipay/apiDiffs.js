@@ -50,7 +50,7 @@ const needPromiseApiDiffs = {
       {
         key: 'tempFilePaths',
         value(res) {
-          return res.apFilePaths[0];
+          return res.apFilePaths;
         }
       }
     ]
