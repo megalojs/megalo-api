@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.2"></a>
+## [0.2.2](https://github.com/megalojs/megalo-api/compare/v0.2.1...v0.2.2) (2018-12-19)
+
+
+### Bug Fixes
+
+* 修复 alipay 部分 api 兼容问题 ([97edb98](https://github.com/megalojs/megalo-api/commit/97edb98))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/megalojs/megalo-api/compare/v0.2.0...v0.2.1) (2018-12-19)
 
