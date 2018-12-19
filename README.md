@@ -19,6 +19,21 @@ plugins: [
   })
 ]
 ```
+
+## 环境判断
+
+#### Megalo.ENV_TYPE
+
+`ENV_TYPE.WEAPP` 微信小程序环境  
+`ENV_TYPE.SWAN` 百度小程序环境  
+`ENV_TYPE.ALIPAY` 支付宝小程序环境  
+`ENV_TYPE.TT` 今日头条小程序环境  
+`ENV_TYPE.WEB` WEB(H5)环境
+
+#### Megalo.getEnv()
+
+获取当前环境值，具体值如上 `Megalo.ENV_TYPE`
+
 ## 网络
 
 ### 发起请求
