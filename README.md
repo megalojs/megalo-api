@@ -102,7 +102,7 @@ statusCode | number | 开发者服务器返回的 HTTP 状态码
 
 API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 
 --- | --- | --- | --- | --- | ---
-uploadFile | ✔ | ✔ |  | ✔ | 
+uploadFile | ✔ | ✔ | ✔ | ✔ | 
 
 ##### 下载
 
@@ -116,7 +116,7 @@ uploadFile | ✔ | ✔ |  | ✔ |
 --- | --- | --- | --- | ---
 url | string |  | 是 | 下载资源 url
 header | Object |  | 否 | HTTP 请求的 Header，Header 中不能设置 Referer
-filePath | string |  | 否 | 指定文件下载后存储的路径**（仅微信支持）**
+filePath | string |  | 否 | 指定文件下载后存储的路径（**仅微信支持**）
 success | function |  | 否 | 接口调用成功的回调函数
 fail | function |  | 否 | 接口调用失败的回调函数
 complete | function |  | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
@@ -132,7 +132,7 @@ statusCode | number | 开发者服务器返回的 HTTP 状态码
 
 API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 
 --- | --- | --- | --- | --- | ---
-downloadFile | ✔ | ✔ |  | ✔ | 
+downloadFile | ✔ | ✔ | ✔ | ✔ | 
 
 ##### WebSocket
 
@@ -146,7 +146,7 @@ downloadFile | ✔ | ✔ |  | ✔ |
 --- | --- | --- | --- | ---
 url | string |  | 是 | 开发者服务器 wss 接口地址
 header | Object |  | 否 | HTTP Header，Header 中不能设置 Referer
-protocols | Array.<string> |  | 否 | 子协议数组**（支付宝不支持）**
+protocols | Array.<string> |  | 否 | 子协议数组（**支付宝不支持**）
 success | function |  | 否 | 接口调用成功的回调函数
 fail | function |  | 否 | 接口调用失败的回调函数
 complete | function |  | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
@@ -241,4 +241,8 @@ onSocketMessage | ✔ | ✔ |  |  |
 #### 媒体
 
 ##### 图片
+
+**Megalo.chooseImage(Object object)**
+
+从本地相册选择图片或使用相机拍照，支持 `Promise` 化使用。
 

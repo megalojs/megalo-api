@@ -13,11 +13,23 @@ const noPromiseApis = [
   'startLocalServiceDiscovery',
   'stopLocalServiceDiscovery',
 
+  // 文件
+  'getFileSystemManager',
+
+  // 实时音视频
+  'createLivePusherContext',
+
   // 电量
   'getBatteryInfoSync',
 
   // NFC
   'onHCEMessage',
+
+  // 方向
+  'onDeviceMotionChange',
+
+  // 菜单
+  'getMenuButtonBoundingClientRect',
 
   // 自定义组件
   'nextTick',
@@ -76,6 +88,9 @@ const needPromiseApis = [
   // 微信支付
   'requestPayment',
 
+  // 人脸支付
+  'faceVerifyForPay',
+
   // 发票
   'chooseInvoice',
 
@@ -92,6 +107,10 @@ const needPromiseApis = [
 
   // 压缩图片
   'compressImage',
+
+  // 陀螺仪
+  'startGyroscope',
+  'stopGyroscope',
 ];
 
 export {

@@ -18,11 +18,7 @@ const sharedNoPromiseApis = [
   'createInnerAudioContext',
   'createCameraContext',
   'createLivePlayerContext',
-  'createLivePusherContext',
   'createVideoContext',
-
-  // 文件
-  'getFileSystemManager',
 
   // 位置
   'createMapContext',
@@ -40,18 +36,15 @@ const sharedNoPromiseApis = [
   'onBeaconUpdate',
   'onBeaconServiceChange',
   'onUserCaptureScreen',
-  'onHCEMessage',
   'onGetWifiList',
   'onWifiConnected',
   'onGyroscopeChange',
   'onMemoryWarning',
-  'onDeviceMotionChange',
 
   // 界面
   'createAnimation',
   'pageScrollTo',
   'createCanvasContext',
-  'getMenuButtonBoundingClientRect',
 
   // WXML
   'createIntersectionObserver',
@@ -133,18 +126,12 @@ const sharedNeedPromiseApis = [
   'vibrateLong',
   'vibrateShort',
   'addPhoneContact',
-  'getHCEState',
-  'startHCE',
-  'stopHCE',
-  'sendHCEMessage',
   'startWifi',
   'stopWifi',
   'connectWifi',
   'getWifiList',
   'setWifiList',
   'getConnectedWifi',
-  'startGyroscope',
-  'stopGyroscope',
   'startDeviceMotionListening',
   'stopDeviceMotionListening',
 
@@ -192,7 +179,6 @@ const sharedNeedPromiseApis = [
   'chooseAddress',
   'authorize',
   'chooseInvoiceTitle',
-  'faceVerifyForPay',
   'getUserInfo',
   'login',
   'checkSession',
