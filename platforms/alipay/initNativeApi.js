@@ -35,8 +35,18 @@ function processApis(megalo) {
 
         // Api 差异化兼容
         const result = adaptApi(key, options, needPromiseApiDiffs);
-        const aliasKey = result.rawApi;
+        let aliasKey = result.rawApi;
         options = result.options;
+
+        if (aliasKey === 'showModal') {
+          options.cancelButtonText = options.cancelText;
+          options.confirmButtonText = options.confirmText || '确定';
+          aliasKey = 'confirm';
+          if (options.showCancel === false) {
+            options.buttonText = options.confirmText || '确定';
+            aliasKey = 'alert';
+          }
+        }
 
         if (!(aliasKey in my)) {
           console.warn(`支付宝小程序暂不支持 my.${aliasKey}`);

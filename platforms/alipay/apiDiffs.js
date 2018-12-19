@@ -19,6 +19,16 @@ const needPromiseApiDiffs = {
       ]
     }
   },
+  'showModal': {
+    response: [
+      {
+        key: 'cancel',
+        value(res) {
+          return !res.confirm;
+        }
+      }
+    ]
+  },
   'showLoading': {
     options: {
       changes: [
@@ -86,7 +96,25 @@ const needPromiseApiDiffs = {
           indv: 'apFilePath'
         }
       ]
-    }
+    },
+    response: [
+      {
+        key: 'savedFilePath',
+        value(res) {
+          return res.apFilePath;
+        }
+      }
+    ]
+  },
+  'downloadFile': {
+    response: [
+      {
+        key: 'tempFilePath',
+        value(res) {
+          return res.apFilePath;
+        }
+      }
+    ]
   },
   'getFileInfo': {
     options: {
@@ -127,16 +155,6 @@ const needPromiseApiDiffs = {
         }
       ]
     }
-  },
-  'downloadFile': {
-    response: [
-      {
-        key: 'tempFilePath',
-        value(res) {
-          return res.apFilePath;
-        }
-      }
-    ]
   },
   'getNetworkType': {
     response: [
@@ -197,7 +215,15 @@ const needPromiseApiDiffs = {
           }
         }
       ]
-    }
+    },
+    response: [
+      {
+        key: 'result',
+        value(res) {
+          return res.code;
+        }
+      }
+    ]
   },
   'openLocation': {
     options: {

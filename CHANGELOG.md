@@ -11,8 +11,8 @@ All notable changes to this project will be documented in this file. See [standa
 * fixed alipay api bugs ([3d09dfa](https://github.com/megalojs/megalo-api/commit/3d09dfa))
 
 
-<a name="0.1.0"></a>
-# [0.1.0](https://github.com/megalojs/megalo-api/compare/v0.0.2...v0.1.0) (2018-12-18)
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/megalojs/megalo-api/compare/v0.0.2...v0.2.0) (2018-12-18)
 
 
 ### Bug Fixes
