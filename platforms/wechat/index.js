@@ -17,7 +17,7 @@ Megalo = new Proxy(Megalo, {
     if (key in target) {
       return target[key];
     } else {
-      console.warn(`微信小程序暂不支持 wx.${key}`);
+      console.warn(`微信小程序暂不支持 wx.${key.toString()}`);
       return target[key] = () => {};
     }
   }
