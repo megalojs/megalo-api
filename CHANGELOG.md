@@ -24,6 +24,17 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/megalojs/megalo-api/compare/v0.2.2...v0.2.3) (2019-02-01)
+
+
+### Bug Fixes
+
+* apiDiffs..changes with wrong attributes key ([25109e1](https://github.com/megalojs/megalo-api/commit/25109e1))
+* fixed warning tips ([4c378fa](https://github.com/megalojs/megalo-api/commit/4c378fa))
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/megalojs/megalo-api/compare/v0.2.1...v0.2.2) (2018-12-19)
 
