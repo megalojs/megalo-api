@@ -20,8 +20,8 @@ const apiDiffs = {
     alias: 'navigateToSmartProgram',
     options: {
       changes: [{
-        standard: 'appId',
-        individual: 'appKey'
+        std: 'appId',
+        indv: 'appKey'
       }]
     }
   }
