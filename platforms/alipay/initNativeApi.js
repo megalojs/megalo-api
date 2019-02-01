@@ -166,9 +166,9 @@ function adaptRequest(options) {
   options['headers'] = defaultHeaders;
 
   if (options['header']) {
-    for (const k in options['headers']) {
+    for (const k in options['header']) {
       const lowerK = k.toLocaleLowerCase();
-      options['headers'][k] = options['header'][lowerK];
+      options['headers'][lowerK] = options['header'][k];
     }
 
     delete options['header'];
