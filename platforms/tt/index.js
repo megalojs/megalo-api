@@ -17,7 +17,7 @@ Megalo = new Proxy(Megalo, {
     if (key in target) {
       return target[key];
     } else {
-      console.warn(`头条小程序暂不支持 tt.${key}`);
+      console.warn(`头条小程序暂不支持 tt.${key.toString()}`);
       return target[key] = () => {};
     }
   }

@@ -17,7 +17,7 @@ Megalo = new Proxy(Megalo, {
     if (key in target) {
       return target[key];
     } else {
-      console.warn(`百度小程序暂不支持 swan.${key}`);
+      console.warn(`百度小程序暂不支持 swan.${key.toString()}`);
       return target[key] = () => {};
     }
   }

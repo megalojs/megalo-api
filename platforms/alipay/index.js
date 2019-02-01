@@ -17,7 +17,7 @@ Megalo = new Proxy(Megalo, {
     if (key in target) {
       return target[key];
     } else {
-      console.warn(`支付宝小程序暂不支持 my.${key}`);
+      console.warn(`支付宝小程序暂不支持 my.${key.toString()}`);
       return target[key] = () => {};
     }
   }
