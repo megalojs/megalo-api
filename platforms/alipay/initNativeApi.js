@@ -17,10 +17,6 @@ import {
 
 const foo = () => {};
 
-const defaultHeaders = {
-  'Content-Type': 'application/json'
-};
-
 function processApis(megalo) {
   const myApis = [].concat(
     sharedNoPromiseApis,
@@ -163,18 +159,14 @@ function processApis(megalo) {
 }
 
 function adaptRequest(options) {
-  options['headers'] = defaultHeaders;
-
   if (options['header']) {
-    for (const k in options['headers']) {
-      const lowerK = k.toLocaleLowerCase();
-      options['headers'][k] = options['header'][lowerK];
+    for (const k in options['header']) {
+      options['headers'][k] = options['header'][k];
     }
 
     delete options['header'];
   }
 
-  this.request = this.httpRequest;
   const requestTask = request.call(this, options);
 
   return requestTask.then(res => {
