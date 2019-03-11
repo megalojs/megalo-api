@@ -159,6 +159,7 @@ function processApis(megalo) {
 }
 
 function adaptRequest(options) {
+  options['headers'] = {};
   if (options['header']) {
     for (const k in options['header']) {
       options['headers'][k] = options['header'][k];
