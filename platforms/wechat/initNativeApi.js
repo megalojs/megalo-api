@@ -1,5 +1,4 @@
 import {
-  request,
   sharedNoPromiseApis,
   sharedNeedPromiseApis,
 } from '../shared';
@@ -8,6 +7,9 @@ import {
   noPromiseApis,
   needPromiseApis,
 } from './nativeApi';
+
+import * as utils from '../../utils/index';
+import RequestManager from '../shared/request';
 
 const foo = () => {};
 
@@ -78,9 +80,19 @@ function processApis(megalo) {
   });
 }
 
+function createXHRInstance() {
+  let context = new RequestManager();
+  let instance = utils.bind(RequestManager.prototype.request, context);
+
+  utils.extend(instance, RequestManager.prototype, context);
+
+  utils.extend(instance, context);
+
+  return instance;
+}
+
 export default function initNativeApi(megalo) {
   processApis(megalo);
-  megalo.request = (...args) => {
-    return request.apply(wx, args);
-  };
+
+  megalo.request = createXHRInstance();
 }
