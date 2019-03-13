@@ -10,6 +10,7 @@ import {
 
 import * as utils from '../../utils/index';
 import RequestManager from '../shared/request';
+import CancelToken from '../shared/cancelToken';
 
 const foo = () => {};
 
@@ -93,6 +94,6 @@ function createXHRInstance() {
 
 export default function initNativeApi(megalo) {
   processApis(megalo);
-
+  megalo.CancelToken = CancelToken;
   megalo.request = createXHRInstance();
 }

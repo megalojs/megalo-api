@@ -1,8 +1,6 @@
 import { getEnv } from './env';
 import InterceptorManager from './interceptor';
 
-const foo = () => {};
-
 const RequestQueue = {
   MAX_REQUEST: 10,
   waitQueue: [],
@@ -72,32 +70,24 @@ function send(options) {
           };
 
           requestTask = ctx.request(options);
+
+          // 取消请求
+          if (options.cancelToken) {
+            options.cancelToken.promise.then(cancel => {
+              if (!requestTask) {
+                return;
+              }
+
+              requestTask.abort();
+              reject(cancel);
+              requestTask = null;
+            });
+          }
+
         });
       }
     });
   });
-
-  p.abort = () => {
-    if (requestTask.abort) {
-      requestTask.abort();
-    }
-  };
-
-  p.offHeadersReceived = cb => {
-    cb = cb || foo;
-
-    if (requestTask.offHeadersReceived) {
-      requestTask.offHeadersReceived(cb);
-    }
-  };
-
-  p.onHeadersReceived = cb => {
-    cb = cb || foo;
-
-    if (requestTask.onHeadersReceived) {
-      requestTask.onHeadersReceived(cb);
-    }
-  };
 
   return p;
 }
@@ -112,7 +102,6 @@ export default class RequestManager {
 
   request(options) {
     options = options || {};
-    // options.ctx = swan;
 
     let chain = [ this.dispatchRequest, undefined ];
     let promise = Promise.resolve(options);
