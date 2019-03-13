@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/megalojs/megalo-api/compare/v0.2.5...v0.3.0) (2019-03-13)
+
+
+### Features
+
+* support request abort ([d4f64e6](https://github.com/megalojs/megalo-api/commit/d4f64e6))
+* support request interceptors [#2](https://github.com/megalojs/megalo-api/issues/2) ([13d08f8](https://github.com/megalojs/megalo-api/commit/13d08f8))
+
+
+
 <a name="0.2.5"></a>
 ## [0.2.5](https://github.com/megalojs/megalo-api/compare/v0.2.4...v0.2.5) (2019-03-11)
 
