@@ -67,6 +67,22 @@ plugins: [
 **示例代码：**
 
 ```js
+// 增加拦截器
+Megalo.request.interceptors.before.use(options => {
+  options.token = 'aaa';
+  return options;
+}, err => {
+  return Promise.reject(err);
+});
+
+Megalo.request.interceptors.after.use(response => {
+  if (response.status !== 200) {
+    // xxxx
+  }
+}, err => {
+  return Promise.reject(err);
+});
+
 Megalo.request({
   url: 'test.php',
   data: {
@@ -80,11 +96,31 @@ Megalo.request({
 
 ```
 
+```js
+// 取消请求
+const source = Megalo.CancelToken.source();
+Megalo.request({
+  cancelToken: source.token,
+  url: 'test.php',
+  data: {
+    x: '',
+    y: ''
+  },
+  header: {
+    'content-type': 'application/json'
+  }
+}).then(res => console.log(res.data), err => console.log(err.message));
+
+source.cancel('取消本次请求');
+
+```
+
 > API 支持度
 
 | API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 |
 | :-: | :-: | :-: | :-: | :-: | :-: |
 | Megalo.request | ✔️ | ✔️ | ✔️ | ✔️ |  |
+| Megalo.CancelToken | ✔️ | ✔️ | ✔️ | ✔️ |  |
 
 ### 上传、下载
 

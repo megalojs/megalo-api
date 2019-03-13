@@ -1,5 +1,4 @@
 import { 
-  request,
   adaptApi,
   sharedNoPromiseApis,
   sharedNeedPromiseApis,
@@ -14,6 +13,10 @@ import {
   needPromiseApiDiffs,
   // noPromiseApiDiffs,
 } from './apiDiffs';
+
+import * as utils from '../../utils/index';
+import RequestManager from '../shared/request';
+import CancelToken from '../shared/cancelToken';
 
 const foo = () => {};
 
@@ -158,34 +161,44 @@ function processApis(megalo) {
   });
 }
 
-function adaptRequest(options) {
-  options['headers'] = {};
-  if (options['header']) {
-    for (const k in options['header']) {
-      options['headers'][k] = options['header'][k];
+function createXHRInstance() {
+  let context = new RequestManager();
+  let instance = utils.bind(RequestManager.prototype.request, context);
+
+  utils.extend(instance, RequestManager.prototype, context);
+
+  utils.extend(instance, context);
+
+  // 处理 header 
+  instance.interceptors.before.use(options => {
+    options['headers'] = {};
+    if (options['header']) {
+      for (const k in options['header']) {
+        options['headers'][k] = options['header'][k];
+      }
+
+      delete options['header'];
     }
 
-    delete options['header'];
-  }
-
-  const requestTask = request.call(this, options);
-
-  return requestTask.then(res => {
-    res.statusCode = res.status;
-    delete res.status;
-
-    res.header = res.headers;
-    delete res.headers;
-
-    return Promise.resolve(res);
-  }).catch(error => {
-    return Promise.reject(error);
+    return options;
   });
+
+  // 处理 statusCode
+  instance.interceptors.after.use(response => {
+    response.statusCode = response.status;
+    delete response.status;
+
+    response.header = response.headers;
+    delete response.headers;
+
+    return response;
+  });
+
+  return instance;
 }
 
 export default function initNativeApi(megalo) {
   processApis(megalo);
-  megalo.request = (...args) => {
-    return adaptRequest.apply(my, args);
-  };
+  megalo.CancelToken = CancelToken;
+  megalo.request = createXHRInstance();
 }
