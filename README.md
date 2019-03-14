@@ -79,6 +79,7 @@ Megalo.request.interceptors.after.use(response => {
   if (response.status !== 200) {
     // xxxx
   }
+  return response;
 }, err => {
   return Promise.reject(err);
 });
