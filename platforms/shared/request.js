@@ -31,7 +31,7 @@ const RequestQueue = {
   }
 };
 
-function getEnvContent() {
+function getEnvContext() {
   let env = getEnv();
 
   switch(env) {
@@ -49,7 +49,7 @@ function getEnvContent() {
 }
 
 function send(options) {
-  const ctx = getEnvContent();
+  const ctx = getEnvContext();
 
   let requestTask;
   const p = new Promise((resolve, reject) => {
