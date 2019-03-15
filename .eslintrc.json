@@ -17,6 +17,7 @@
     "my": false,
     "tt": false,
     "swan": false,
-    "window": false
+    "window": false,
+    "document": false
   }
 }
