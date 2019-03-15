@@ -120,8 +120,8 @@ source.cancel('取消本次请求');
 
 | API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| Megalo.request | ✔️ | ✔️ | ✔️ | ✔️ |  |
-| Megalo.CancelToken | ✔️ | ✔️ | ✔️ | ✔️ |  |
+| Megalo.request | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| Megalo.CancelToken | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
 ### 上传、下载
 
@@ -149,8 +149,8 @@ Megalo.downloadFile(params).then(...)
 
 | API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| Megalo.uploadFile | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| Megalo.downloadFile | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| Megalo.uploadFile | ✔️ | ✔️ | ✔️ | ✔️ |  |
+| Megalo.downloadFile | ✔️ | ✔️ | ✔️ | ✔️ |  |
 
 ### WebSocket
 
