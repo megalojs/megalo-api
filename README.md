@@ -149,8 +149,8 @@ Megalo.downloadFile(params).then(...)
 
 | API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| Megalo.uploadFile | ✔️ | ✔️ | ✔️ | ✔️ |  |
-| Megalo.downloadFile | ✔️ | ✔️ | ✔️ | ✔️ |  |
+| Megalo.uploadFile | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| Megalo.downloadFile | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
 ### WebSocket
 
@@ -940,8 +940,8 @@ Megalo.canIUse('button.open-type.contact')
 
 | API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| Megalo.getSystemInfo | ✔️ | ✔️ | ✔️ | ✔️ |  |
-| Megalo.getSystemInfoSync | ✔️ | ✔️ | ✔️ | ✔️ |  |
+| Megalo.getSystemInfo | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| Megalo.getSystemInfoSync | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | Megalo.canIUse | ✔️ | ✔️ | ✔️ |  |  |
 
 ### 网络状态
@@ -2001,10 +2001,10 @@ Megalo.reLaunch(params).then(...)
 
 | API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| Megalo.navigateTo | ✔️ | ✔️ | ✔️ | ✔️ |  |
-| Megalo.redirectTo | ✔️ | ✔️ | ✔️ | ✔️ |  |
+| Megalo.navigateTo | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| Megalo.redirectTo | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | Megalo.switchTab | ✔️ | ✔️ | ✔️ | ✔️ |  |
-| Megalo.navigateBack | ✔️ | ✔️ | ✔️ | ✔️ |  |
+| Megalo.navigateBack | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | Megalo.reLaunch | ✔️ | ✔️ | ✔️ | ✔️ |  |
 
 ### 动画
@@ -2046,7 +2046,7 @@ Megalo.pageScrollTo(params).then(...)
 
 | API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| Megalo.pageScrollTo | ✔️ | ✔️ | ✔️ | ✔️ |  |
+| Megalo.pageScrollTo | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
 ### 绘图
 
