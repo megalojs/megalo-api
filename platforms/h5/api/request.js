@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as utils from '../../../../utils/index';
+import * as utils from '../../../utils/index';
 
 class RequestManager extends axios.Axios {
   constructor() {
@@ -20,5 +20,11 @@ function createXHRInstance() {
   return instance;
 }
 
-export const request = createXHRInstance();
-export const CancelToken = axios.CancelToken;
+export default {
+  install(Megalo) {
+    Object.assign(Megalo, {
+      request: createXHRInstance(),
+      CancelToken: axios.CancelToken,
+    });
+  }
+};

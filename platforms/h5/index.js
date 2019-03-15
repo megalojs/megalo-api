@@ -3,7 +3,7 @@ import {
   ENV_TYPE,
 } from '../shared';
 
-import * as api from './api';
+import api from './api';
 
 let Megalo = {
   getEnv,
