@@ -5,6 +5,7 @@ import system from './system';
 import navigation from './navigation';
 // import network from './network';
 import clipboard from './clipboard';
+import accelerometer from './accelerometer';
 
 const Megalo = {
   use(plugin) {
@@ -19,5 +20,6 @@ Megalo.use(system);
 Megalo.use(navigation);
 // Megalo.use(network);
 Megalo.use(clipboard);
+Megalo.use(accelerometer);
 
 export default Megalo;

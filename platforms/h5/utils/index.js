@@ -14,3 +14,26 @@ export function setScrollTop(value) {
   window.pageYOffset = value;
   return setDocumentElementAttr('scrollTop', value);
 }
+
+export function throttle(fn, interval) {
+  let last, timer;
+  interval || (interval = 250);
+
+  return function() {
+    let context = this;
+    let args = arguments;
+    let now = +new Date();
+
+    if (last && now < last + interval) {
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        last = now;
+        fn.apply(context, args);
+      }, interval);
+    } else {
+      last = now;
+      fn.apply(context, args);
+    }
+  };
+}
