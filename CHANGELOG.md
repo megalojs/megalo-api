@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/megalojs/megalo-api/compare/v0.4.0...v0.4.1) (2019-03-25)
+
+
+### Features
+
+* 支持 setClipboardData ([0944986](https://github.com/megalojs/megalo-api/commit/0944986))
+* 支持加速度 ([5054fb4](https://github.com/megalojs/megalo-api/commit/5054fb4))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/megalojs/megalo-api/compare/v0.3.0...v0.4.0) (2019-03-15)
 
