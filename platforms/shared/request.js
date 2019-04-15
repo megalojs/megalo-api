@@ -41,7 +41,7 @@ function getEnvContext() {
       return swan;
     case 'alipay':
       return my;
-    case 'tt':
+    case 'toutiao':
       return tt;
     default:
       return wx;

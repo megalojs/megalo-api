@@ -27,7 +27,7 @@ plugins: [
 `ENV_TYPE.WEAPP` 微信小程序环境  
 `ENV_TYPE.SWAN` 百度小程序环境  
 `ENV_TYPE.ALIPAY` 支付宝小程序环境  
-`ENV_TYPE.TT` 今日头条小程序环境  
+`ENV_TYPE.TOUTIAO` 今日头条小程序环境  
 `ENV_TYPE.WEB` WEB(H5)环境
 
 #### Megalo.getEnv()
