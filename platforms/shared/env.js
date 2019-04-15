@@ -3,7 +3,7 @@ export const ENV_TYPE = {
   WEB: 'web',
   SWAN: 'swan',
   ALIPAY: 'alipay',
-  TT: 'tt',
+  TOUTIAO: 'toutiao',
 };
 
 export function getEnv() {
@@ -20,7 +20,7 @@ export function getEnv() {
   }
 
   if (typeof tt !== 'undefined' && tt.getSystemInfo) {
-    return ENV_TYPE.TT;
+    return ENV_TYPE.TOUTIAO;
   }
 
   if (typeof window !== 'undefined') {
