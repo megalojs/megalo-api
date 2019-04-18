@@ -7,6 +7,10 @@ export const ENV_TYPE = {
 };
 
 export function getEnv() {
+  if (typeof tt !== 'undefined' && tt.getSystemInfo) {
+    return ENV_TYPE.TOUTIAO;
+  }
+  
   if (typeof wx !== 'undefined' && wx.getSystemInfo) {
     return ENV_TYPE.WECHAT;
   }
@@ -17,10 +21,6 @@ export function getEnv() {
 
   if (typeof my !== 'undefined' && my.getSystemInfo) {
     return ENV_TYPE.ALIPAY;
-  }
-
-  if (typeof tt !== 'undefined' && tt.getSystemInfo) {
-    return ENV_TYPE.TOUTIAO;
   }
 
   if (typeof window !== 'undefined') {
