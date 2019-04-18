@@ -6,6 +6,10 @@
   "scripts": {
     "lint": "eslint ./ --fix",
     "release": "standard-version",
+    "release:pre": "npm run release -- --prerelease",
+    "release:patch": "npm run release -- --release-as patch",
+    "release:minor": "npm run release -- --release-as minor",
+    "release:major": "npm run release -- --release-as major",
     "publish": "git push --follow-tags origin master && npm publish"
   },
   "lint-staged": {
