@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/megalojs/megalo-api/compare/v0.5.1...v0.5.2) (2019-04-18)
+
+
+### Bug Fixes
+
+* update scripts ([5e0a883](https://github.com/megalojs/megalo-api/commit/5e0a883))
+* 修复头条小程序环境判断 ([a161823](https://github.com/megalojs/megalo-api/commit/a161823))
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/megalojs/megalo-api/compare/v0.5.0...v0.5.1) (2019-04-15)
 
