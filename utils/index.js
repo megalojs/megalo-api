@@ -65,3 +65,7 @@ export function extend(a, b, thisArg) {
   });
   return a;
 }
+
+export function isNative(Ctor) {
+  return typeof Ctor === 'function' && /native code/.test(Ctor.toString());
+}
