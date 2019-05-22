@@ -11,7 +11,7 @@ import {
 
 import {
   needPromiseApiDiffs,
-  // noPromiseApiDiffs,
+  noPromiseApiDiffs,
 } from './apiDiffs';
 
 import * as utils from '../../utils/index';
@@ -108,54 +108,54 @@ function processApis(megalo) {
         return p;
       };
     } else {
-      megalo[key] = (...args) => {
-        if (!(key in my)) {
-          console.warn(`支付宝小程序暂不支持 my.${key}`);
+      megalo[key] = (options = {}, ...args) => {
+
+        const result = adaptApi(key, options, noPromiseApiDiffs);
+        let aliasKey = result.rawApi;
+
+        if (!(aliasKey in my)) {
+          console.warn(`支付宝小程序暂不支持 my.${aliasKey}`);
           return;
         }
-        if (key === 'getStorageSync') {
+        if (aliasKey === 'getStorageSync') {
           const arg1 = args[0];
           if (arg1 !== null) {
-            return my[key]({ key: arg1 }).data || '';
+            return my[aliasKey]({ key: arg1 }).data || '';
           }
         }
-        if (key === 'setStorageSync') {
+        if (aliasKey === 'setStorageSync') {
           const arg1 = args[0];
           const arg2 = args[1];
           if (arg1 !== null) {
-            return my[key]({
+            return my[aliasKey]({
               key: arg1,
               data: arg2
             });
           }
         }
-        if (key === 'removeStorageSync') {
+        if (aliasKey === 'removeStorageSync') {
           const arg1 = args[0];
           if (arg1 !== null) {
-            return my[key]({ key: arg1 });
+            return my[aliasKey]({ key: arg1 });
           }
         }
-        if (key === 'createSelectorQuery') {
-          const query = my[key]();
+        if (aliasKey === 'createSelectorQuery') {
+          const query = my[aliasKey]();
           query.in = function () { return query; };
           return query;
         }
 
-        if (key === 'onBLEConnectionStateChange') {
-          return my['onBLEConnectionStateChanged'].apply(my, args);
-        }
-
-        if (key === 'onNetworkStatusChange') {
+        if (aliasKey === 'onNetworkStatusChange') {
           const arg1 = args[0];
           if (arg1 !== null) {
-            my[key](res => {
+            my[aliasKey](res => {
               res.networkType = res.networkType.toLocaleLowerCase();
               arg1(res);
             });
           }
         }
 
-        return my[key].apply(my, args);
+        return my[aliasKey].apply(my, args);
       };
     }
   });

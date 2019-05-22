@@ -5,6 +5,9 @@ const needPromiseApiDiffs = {
   'setNavigationBarColor': {
     alias: 'setNavigationBar'
   },
+  'createBLEConnection': {
+    alias: 'connectBLEDevice'
+  },
   'showToast': {
     options: {
       changes: [
@@ -264,9 +267,9 @@ const noPromiseApiDiffs = {
   //     }
   //   ]
   // },
-  // 'onBLEConnectionStateChange': {
-  //   alias: 'onBLEConnectionStateChanged'
-  // }
+  'onBLEConnectionStateChange': {
+    alias: 'onBLEConnectionStateChanged'
+  }
 };
 
 export {
