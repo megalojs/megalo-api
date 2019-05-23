@@ -108,9 +108,9 @@ function processApis(megalo) {
         return p;
       };
     } else {
-      megalo[key] = (options = {}, ...args) => {
+      megalo[key] = (...args) => {
 
-        const result = adaptApi(key, options, noPromiseApiDiffs);
+        const result = adaptApi(key, {}, noPromiseApiDiffs);
         let aliasKey = result.rawApi;
 
         if (!(aliasKey in my)) {

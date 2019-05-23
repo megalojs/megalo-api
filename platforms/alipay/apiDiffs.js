@@ -8,6 +8,9 @@ const needPromiseApiDiffs = {
   'createBLEConnection': {
     alias: 'connectBLEDevice'
   },
+  'closeBLEConnection': {
+    alias: 'disconnectBLEDevice'
+  },
   'showToast': {
     options: {
       changes: [
