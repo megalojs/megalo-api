@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.6"></a>
+## [0.5.6](https://github.com/megalojs/megalo-api/compare/v0.5.6-0...v0.5.6) (2019-05-24)
+
+
+### Bug Fixes
+
+* update ([9a83abf](https://github.com/megalojs/megalo-api/commit/9a83abf))
+
+
+
 <a name="0.5.5"></a>
 ## [0.5.5](https://github.com/megalojs/megalo-api/compare/v0.5.5-3...v0.5.5) (2019-05-23)
 
