@@ -1,13 +1,13 @@
 import alipay from './platforms/alipay';
 import wechat from './platforms/wechat';
 import swan from './platforms/swan';
-import tt from './platforms/tt';
-import h5 from './platforms/h5';
+import toutiao from './platforms/toutiao';
+import web from './platforms/web';
 
 export default {
   alipay,
   wechat,
   swan,
-  tt,
-  h5,
+  toutiao,
+  web,
 };
