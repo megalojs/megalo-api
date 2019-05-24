@@ -1,3 +1,5 @@
+import { buf2hex } from '../shared';
+
 const needPromiseApiDiffs = {
   'setNavigationBarTitle': {
     alias: 'setNavigationBar',
@@ -216,7 +218,7 @@ const needPromiseApiDiffs = {
       set: [
         {
           key: 'type',
-          value (options) {
+          value(options) {
             return (options.scanType && options.scanType[0].slice(0, -4)) || 'qr';
           }
         }
@@ -258,18 +260,42 @@ const needPromiseApiDiffs = {
         }
       ]
     }
+  },
+  'getBLEDeviceCharacteristics': {
+    response: [
+      {
+        key: 'characteristics.uuid',
+        value(res, index) {
+          return res.characteristics[index].characteristicId;
+        }
+      }
+    ]
+  },
+  'getBLEDeviceServices': {
+    response: [
+      {
+        key: 'services.uuid',
+        value(res, index) {
+          return res.services[index].serviceId;
+        }
+      }
+    ]
+  },
+  'writeBLECharacteristicValue': {
+    options: {
+      set: [
+        {
+          key: 'value',
+          value(options) {
+            return buf2hex(options.value);
+          }
+        }
+      ]
+    }
   }
 };
 
 const noPromiseApiDiffs = {
-  // 'onNetworkStatusChange': {
-  //   response: [
-  //     key: 'networkType',
-  //     value(options) {
-  //       return options.networkType.toLocaleUpperCase();
-  //     }
-  //   ]
-  // },
   'onBLEConnectionStateChange': {
     alias: 'onBLEConnectionStateChanged'
   }

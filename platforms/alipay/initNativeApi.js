@@ -1,4 +1,5 @@
 import { 
+  hex2buf,
   adaptApi,
   sharedNoPromiseApis,
   sharedNeedPromiseApis,
@@ -67,7 +68,18 @@ function processApis(megalo) {
                   const response = needPromiseApiDiffs[key].response;
 
                   response.forEach(item => {
-                    res[item.key] = item.value(res);
+                    let keys = item.key.split('.');
+                    if (keys.length === 1) {
+                      res[keys[0]] = item.value(res);
+                    } else if (keys.length === 2) {
+                      if (Array.isArray(res[keys[0]])) {
+                         res[keys[0]].forEach((obj, index) => {
+                           obj[keys[1]] = item.value(res, index);
+                         });
+                      } else {
+                        res[keys[0]][keys[1]] = item.value(res);
+                      }
+                    }
                   });
                 }
 
@@ -150,6 +162,16 @@ function processApis(megalo) {
           if (arg1 !== null) {
             my[aliasKey](res => {
               res.networkType = res.networkType.toLocaleLowerCase();
+              arg1(res);
+            });
+          }
+        }
+
+        if (aliasKey === 'onBLECharacteristicValueChange') {
+          const arg1 = args[0];
+          if (arg1 !== null) {
+            my[aliasKey](res => {
+              res.value = hex2buf(res.value);
               arg1(res);
             });
           }
