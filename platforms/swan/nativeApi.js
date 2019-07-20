@@ -6,6 +6,9 @@ const noPromiseApis = [
 
   // 登录
   'isLoginSync',
+
+  // 菜单
+  'getMenuButtonBoundingClientRect',
 ];
 
 const needPromiseApis = [
