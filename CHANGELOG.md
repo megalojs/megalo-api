@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.7"></a>
+## [0.5.7](https://github.com/megalojs/megalo-api/compare/v0.5.6...v0.5.7) (2019-07-22)
+
+
+### Bug Fixes
+
+* support swan getMenuButtonBoundingClientRect function ([1ef39e8](https://github.com/megalojs/megalo-api/commit/1ef39e8))
+
+
+
 <a name="0.5.6"></a>
 ## [0.5.6](https://github.com/megalojs/megalo-api/compare/v0.5.6-0...v0.5.6) (2019-05-24)
 
