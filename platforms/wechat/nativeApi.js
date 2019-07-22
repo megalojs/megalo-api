@@ -28,9 +28,6 @@ const noPromiseApis = [
   // 方向
   'onDeviceMotionChange',
 
-  // 菜单
-  'getMenuButtonBoundingClientRect',
-
   // 自定义组件
   'nextTick',
 

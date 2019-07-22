@@ -45,6 +45,7 @@ const sharedNoPromiseApis = [
   'createAnimation',
   'pageScrollTo',
   'createCanvasContext',
+  'getMenuButtonBoundingClientRect',
 
   // WXML
   'createIntersectionObserver',
