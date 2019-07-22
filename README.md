@@ -2089,6 +2089,24 @@ Megalo.stopPullDownRefresh()
 | Megalo.startPullDownRefresh | ✔️ | ✔️ |  | ✔️ |  |
 | Megalo.stopPullDownRefresh | ✔️ | ✔️ | ✔️ | ✔️ |  |
 
+### 获取菜单按钮
+
+#### Megalo.getMenuButtonBoundingClientRect()
+
+使用方式同 [`wx.getMenuButtonBoundingClientRect`](https://developers.weixin.qq.com/miniprogram/dev/api/ui/menu/wx.getMenuButtonBoundingClientRect.html)。
+
+**示例代码：**
+
+```js
+Megalo.getMenuButtonBoundingClientRect()
+```
+
+> API 支持度
+
+| API | 微信小程序 | 百度小程序 | 支付宝小程序 | 今日头条小程序 | H5 |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| Megalo.getMenuButtonBoundingClientRect | ✔️ | ✔️ |  |  |  |
+
 ### WXML 节点信息
 
 #### Megalo.createSelectorQuery()
