@@ -5,7 +5,7 @@ const RequestQueue = {
   MAX_REQUEST: 10,
   waitQueue: [],
   runningQueue: [],
-  push(task) {
+  push (task) {
     const { waitQueue, runningQueue, MAX_REQUEST } = this;
 
     if (runningQueue.length < MAX_REQUEST) {
@@ -14,7 +14,7 @@ const RequestQueue = {
       waitQueue.push(task);
     }
   },
-  run(task) {
+  run (task) {
     const { waitQueue, runningQueue } = this;
 
     runningQueue.push(task);
@@ -31,10 +31,10 @@ const RequestQueue = {
   }
 };
 
-function getEnvContext() {
+function getEnvContext () {
   let env = getEnv();
 
-  switch(env) {
+  switch (env) {
     case 'wechat':
       return wx;
     case 'swan':
@@ -48,13 +48,13 @@ function getEnvContext() {
   }
 }
 
-function send(options) {
+function send (options) {
   const ctx = getEnvContext();
 
   let requestTask;
   const p = new Promise((resolve, reject) => {
     RequestQueue.push({
-      run() {
+      run () {
         return new Promise(resolveTask => {
 
           options.success = res => {
@@ -100,10 +100,10 @@ export default class RequestManager {
     };
   }
 
-  request(options) {
+  request (options) {
     options = options || {};
 
-    let chain = [ this.dispatchRequest, undefined ];
+    let chain = [this.dispatchRequest, undefined];
     let promise = Promise.resolve(options);
 
     this.interceptors.before.forEach(interceptor => {
@@ -114,18 +114,18 @@ export default class RequestManager {
       chain.push(interceptor.fulfilled, interceptor.rejected);
     });
 
-    while(chain.length) {
+    while (chain.length) {
       promise = promise.then(chain.shift(), chain.shift());
     }
 
     return promise;
   }
 
-  dispatchRequest(options) {
+  dispatchRequest (options) {
     return send(options).then(response => {
-      return response;
+      return { options, ...response };
     }, reason => {
-      return Promise.reject(reason);
+      return Promise.reject({ options, ...reason });
     });
   }
 }
