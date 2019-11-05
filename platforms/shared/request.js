@@ -123,9 +123,9 @@ export default class RequestManager {
 
   dispatchRequest (options) {
     return send(options).then(response => {
-      return { options, ...response };
+      return { config: options, ...response };
     }, reason => {
-      return Promise.reject({ options, ...reason });
+      return Promise.reject({ config: options, ...reason });
     });
   }
 }
